@@ -1,21 +1,34 @@
-# Flask CRUD Tasks (SQLite)
+# Flask Task Manager
 
-A simple full CRUD app:
-- Create tasks
-- Read/list tasks (with search)
-- Update tasks (edit + toggle done)
-- Delete tasks
+A modern full-stack CRUD task manager built with Python, Flask, SQLite, and Vanilla JavaScript.
 
-## Tech
-- Python (Flask)
+---
+
+## 🚀 Features
+
+- Create, edit, and delete tasks
+- Mark tasks as complete
+- Dynamic task numbering (auto reorders after delete)
+- Human-readable date formatting
+- Search functionality
+- Apple-inspired clean UI
+- Smooth animations and transitions
+
+---
+
+## 🛠 Tech Stack
+
+### Backend
+- Python
+- Flask
 - SQLite
-- Vanilla JS (fetch API)
-- HTML/CSS
+- REST API architecture
 
-## Run locally
-```bash
-python -m venv .venv
-# Windows:
-.venv\Scripts\activate
-pip install -r requirements.txt
-python app.py
+### Frontend
+- HTML
+- CSS (Apple-inspired neutral UI)
+- Vanilla JavaScript (DOM rendering + API calls)
+
+---
+
+## 📂 Project Structure
