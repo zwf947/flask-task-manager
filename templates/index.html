@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Flask CRUD Tasks</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <header class="wrap header">
+    <h1>Flask CRUD Tasks</h1>
+    <p class="muted">Create • Read • Update • Delete (SQLite + Flask API)</p>
+  </header>
+
+  <main class="wrap">
+    <section class="card">
+      <h2>Add Task</h2>
+      <form id="createForm" class="grid2" autocomplete="off">
+        <label>
+          <span class="label">Title</span>
+          <input id="title" type="text" placeholder="e.g., Apply to 5 jobs" maxlength="80" required />
+        </label>
+        <label>
+          <span class="label">Notes</span>
+          <input id="notes" type="text" placeholder="Optional notes…" maxlength="120" />
+        </label>
+        <button class="btn" type="submit">Create</button>
+      </form>
+      <p id="msg" class="msg" aria-live="polite"></p>
+    </section>
+
+    <section class="card">
+      <div class="row split">
+        <h2>Tasks</h2>
+        <div class="row">
+          <input id="search" type="text" placeholder="Search…" />
+          <button id="refresh" class="btn ghost" type="button">Refresh</button>
+        </div>
+      </div>
+
+      <ul id="list" class="list"></ul>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <small class="muted">Tip: click “Edit” to update title/notes, or toggle Done.</small>
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

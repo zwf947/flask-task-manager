@@ -1,0 +1,304 @@
+/* ---------- Base / Reset ---------- */
+*{ box-sizing: border-box; }
+
+:root{
+  /* Apple-neutral palette */
+  --bg: #f5f5f7;                /* Apple light gray */
+  --text: #1d1d1f;              /* Apple dark graphite */
+  --subtle: #6e6e73;            /* Apple secondary text */
+  --muted: #86868b;             /* Apple tertiary text */
+
+  --card-border: #e5e5ea;
+  --card-bg: #ffffff;
+
+  --item-border: #e5e5ea;
+  --item-bg: #ffffff;
+
+  --input-border: #d2d2d7;
+  --input-bg: #ffffff;
+
+  --btn-border: #d2d2d7;
+  --btn-bg: #f2f2f7;
+  --btn-bg-hover: #e5e5ea;
+
+  --pill-border: #d2d2d7;
+  --pill-bg: #f2f2f7;
+
+  --accent: #0071e3;            /* Apple system blue */
+}
+
+body{
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
+               "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.45;
+}
+
+::selection{ background: rgba(0,113,227,0.18); }
+
+/* ---------- Layout ---------- */
+.wrap{ width: min(980px, 92vw); margin: 0 auto; }
+
+.header{
+  padding: 40px 0 24px;
+  text-align: center;
+}
+.footer{ padding: 22px 0 40px; }
+
+.row{ display:flex; gap:10px; align-items:center; }
+.split{ justify-content: space-between; flex-wrap: wrap; }
+
+.grid2{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  align-items: end;
+}
+@media (max-width: 780px){
+  .grid2{ grid-template-columns: 1fr; }
+}
+
+/* ---------- Typography ---------- */
+h1, h2, h3{
+  margin: 0;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.header h1{
+  font-size: clamp(1.9rem, 3vw, 2.3rem);
+  font-weight: 600;
+}
+
+h2{
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+p{ margin: 0.35rem 0 0; }
+
+.header p{
+  margin-top: 8px;
+  color: var(--subtle);
+  font-size: 0.95rem;
+}
+
+.muted{
+  color: var(--subtle);
+  opacity: 1;
+}
+
+.label{
+  display: inline-block;
+  margin-bottom: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--subtle);
+  letter-spacing: 0.01em;
+}
+
+/* ---------- Cards ---------- */
+.card{
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 16px;
+  margin: 20px auto;
+}
+
+/* ---------- Inputs ---------- */
+input[type="text"],
+input[type="search"],
+input[type="email"],
+input[type="password"],
+textarea{
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--input-border);
+  background: var(--input-bg);
+  color: var(--text);
+  outline: none;
+
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+input::placeholder,
+textarea::placeholder{ opacity: 0.6; }
+
+/* Checkbox */
+input[type="checkbox"]{
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  flex: 0 0 auto;
+
+  accent-color: var(--accent);
+  transition: transform 120ms ease;
+}
+input[type="checkbox"]:checked{ transform: scale(1.12); }
+
+/* ---------- Buttons ---------- */
+.btn{
+  font-family: inherit;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+
+  border: 1px solid var(--btn-border);
+  background: var(--btn-bg);
+  color: var(--text);
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.12s ease;
+}
+
+.btn:hover{ background: var(--btn-bg-hover); }
+.btn:active{ transform: scale(0.98); }
+.btn.ghost{ background: transparent; }
+
+/* ---------- Task List ---------- */
+.list{
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 16px;
+}
+
+/* Task Card */
+.item{
+  width: 100%;
+  padding: 22px;
+  border-radius: 18px;
+  border: 1px solid var(--item-border);
+  background: var(--item-bg);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.item:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+/* Top: checkbox + text stacked */
+.task-top{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Text block */
+.task-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+}
+
+.title{
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+
+  position: relative;
+  display: inline-block;
+  padding: 0 2px;
+}
+
+.notes{
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--subtle);
+}
+
+.meta{
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin-top: 6px;
+}
+
+/* Bottom: buttons on right */
+.task-bottom{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+
+.actions{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Done state */
+.item.done{
+  opacity: 0.6;
+  transition: opacity 180ms ease;
+}
+
+/* Animated strike line */
+.title::after{
+  content: "";
+  position: absolute;
+  left: -2px;
+  right: -2px;
+  top: 50%;
+  height: 2px;
+  background: currentColor;
+  opacity: 0.55;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 180ms ease;
+}
+
+.item.done .title::after{ transform: scaleX(1); }
+
+/* ---------- Pills / Tags (optional) ---------- */
+.pill{
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--pill-border);
+  background: var(--pill-bg);
+  font-size: 0.9rem;
+}
+
+/* ---------- Messages ---------- */
+.msg{
+  margin: 10px 0 0;
+  min-height: 20px;
+  opacity: 0.9;
+}
+.msg.error{ color: #b42318; }
+
+/* ---------- Animations ---------- */
+@keyframes fadeUp{
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.item.animate-in{
+  animation: fadeUp 220ms ease both;
+}
